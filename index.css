@@ -66,9 +66,11 @@ ul, ol {
 }
 
 .menu-image{
-    height: 76px;
+    max-height: 76px;
     display: flex;
     align-items: center;
+    max-width: 70px;
+    object-fit: cover;
 
 }
 
@@ -215,7 +217,7 @@ ul, ol {
 
 /* payment wall */
 
-.payment-popup{
+/* .payment-popup{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -273,6 +275,6 @@ input::placeholder{
     margin: 23.21px 24.87px 29.85px 23.22px;
     width: 475.91px;
     height: 71.3px;
-}
+} */
 
 
