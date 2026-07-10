@@ -24,7 +24,6 @@ body {
 
 .header {
     height: 167px;
-    background-color: aqua;
     margin-bottom: 22px;
 
     
@@ -226,28 +225,54 @@ ul, ol {
     right: 0;
     bottom: 0;
     left: 0;
+    margin: auto;
     width: 524px;
     height: 524.24px;
-    background-color: #16DB99;
+    background-color: white;
     border-radius: 3.89px;
-    
+    box-shadow: 0 0px 80px rgba(0, 0, 0, 0.5);
 }
+
+
 
 .payment-popup h3{
     font-size: 24px;
-    font-weight: 700;
-    line-height: 1;
+    font-weight: bold;
+    line-height: 0;
     font-family: "Verdana";
     margin-bottom: 46.07px;
     margin-top: 47.32px;
+    padding: 0;
 }
 
 input[type="text"]{
 width: 475.91px;
 height: 71.3px;
 margin-bottom: 23.22px;
+font-family: "Verdana";
+color: #757575;
+font-size: 20px;
 
+}
 
+input::placeholder{
+    padding-left: 26.53px;
+}
+
+.payment-popup p{
+    font-family: "Verdana";
+    line-height: 1;
+    font-size: 20px;
+    background-color: #16DB99;
+    border-radius: 3.89PX;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    margin: 23.21px 24.87px 29.85px 23.22px;
+    width: 475.91px;
+    height: 71.3px;
 }
 
 
