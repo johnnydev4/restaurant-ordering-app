@@ -4,6 +4,9 @@ Restaurant ordering app with dynamic menu, cart management, and checkout flow.
 
 A web-based ordering app for a restaurant, built with vanilla HTML, CSS, and JavaScript.
 
+## Live demo
+[View it live](https://johnnydev4.github.io/restaurant-ordering-app/)
+
 ## Features
 - Dynamic menu rendering from a JavaScript data source
 - Add and remove items from the cart
