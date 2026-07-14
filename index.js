@@ -52,20 +52,23 @@ return `
                     <p class="cart-item-name">${cartItem.name}</p>
                     <p class="remove-btn" role="button">remove</p> 
                      <p class="cart-item-price">$${cartItem.price}</p> 
-                </div> 
+                </div>
+               
        
         `
 
     }).join("")
 
-    const html = `<h3>Your Order</h3> 
-                    ${ItemsHtml}  
-                        <div class="price-total"> 
+    const html = `      <h3>Your Order</h3>
+                    <div class="cartOverflow">
+                            ${ItemsHtml}
+                    </div>
+                    <div class="price-total"> 
                             <p>Total price:</p> 
                             <p class="totalNumber">$26</p> 
                          </div> 
-                    <p class="purchaseBtn" role="button">Complete Order</p> 
-            `
+                            <p class="purchaseBtn" role="button">Complete Order</p> 
+                 `
 
     document.getElementsByClassName('cart')[0].innerHTML = html
 }
