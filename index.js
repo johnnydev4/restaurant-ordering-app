@@ -1,5 +1,9 @@
 import menuArray from './data.js'
 
+
+const cartArray = []
+
+// rem dom
 function render(){
     const html = menuArray.map(function(item){
         return `
@@ -10,7 +14,7 @@ function render(){
                     <li class="ingredients">${item.ingredients}</li>
                     <li class="priceEl">$${item.price}</li>
                 </ul>
-                <p class="add-btn" role="button">+</p>
+                <p class="add-btn" data-id="${item.id}" role="button">+</p>
             </div>
         `
     }).join("")
@@ -19,3 +23,56 @@ function render(){
 }
 
 render()
+
+// adding to cart
+addEventListener("click", function(event){
+    if (event.target.dataset.id){
+        const clickId = event.target.dataset.id
+        
+        cartArray.push(menuArray.find(function(item){
+            return item.id === Number(clickId)
+        }))
+        
+        cartRen()
+    }
+})
+
+
+
+
+
+
+// rem cart function
+
+function cartRen(){
+    const ItemsHtml = cartArray.map(function(cartItem){
+return `  
+            
+                <div class="cart-items">
+                    <p class="cart-item-name">${cartItem.name}</p>
+                    <p class="remove-btn" role="button">remove</p> 
+                     <p class="cart-item-price">$${cartItem.price}</p> 
+                </div> 
+       
+        `
+
+    }).join("")
+
+    const html = `<h3>Your Order</h3> 
+                    ${ItemsHtml}  
+                        <div class="price-total"> 
+                            <p>Total price:</p> 
+                            <p class="totalNumber">$26</p> 
+                         </div> 
+                    <p class="purchaseBtn" role="button">Complete Order</p> 
+            `
+
+    document.getElementsByClassName('cart')[0].innerHTML = html
+}
+
+
+
+// usa el id para buscar el objeto en menuArray
+// añade el objeto al cart Array
+// haz una funcion aparte para renderizar el cart y llamala cuando se active el addEventListener
+// en la funcion agrega template String.

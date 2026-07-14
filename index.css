@@ -59,6 +59,7 @@ ul, ol {
     padding-bottom: 51px;
     margin-top: 45px;
     height: 140px;
+    width: 508px;
     display: flex;
     align-items: center;
     box-sizing: border-box;
@@ -110,6 +111,7 @@ ul, ol {
     font-size: 32px;
     border-radius: 50%;
     border: 1px solid #DEDEDE;
+    cursor: pointer;
     
 }
 
@@ -179,10 +181,12 @@ ul, ol {
 .price-total{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     border-top: 2px solid black;
     font-size: 28px;
-    margin-left: 45px;
-    margin-right: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 504px;
 }
 
 .price-total p{
@@ -275,6 +279,6 @@ input::placeholder{
     margin: 23.21px 24.87px 29.85px 23.22px;
     width: 475.91px;
     height: 71.3px;
-} */
+}
 
 
