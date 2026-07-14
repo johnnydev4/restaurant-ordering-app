@@ -50,6 +50,8 @@ body {
 
 ul, ol {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .menu-item{
@@ -67,11 +69,13 @@ ul, ol {
 }
 
 .menu-image{
-    max-height: 76px;
-    display: flex;
-    align-items: center;
-    max-width: 70px;
-    object-fit: cover;
+    height: 76px;
+    width: 70px;
+    object-fit: contain;
+    flex-shrink: 0;
+    padding-right: 31px;
+
+    
 
 }
 
