@@ -34,12 +34,20 @@ addEventListener("click", function(event){
         }))
         
         cartRen()
+
     }
 })
 
 
 
+// total cart price function
 
+function getTotalPrice(data){
+const sum = data.reduce(function (total, current){
+return total + current.price
+},0)
+return sum
+}
 
 
 // rem cart function
@@ -58,14 +66,14 @@ return `
         `
 
     }).join("")
-
+ const totalPrice = getTotalPrice(cartArray)
     const html = `      <h3>Your Order</h3>
                     <div class="cartOverflow">
                             ${ItemsHtml}
                     </div>
                     <div class="price-total"> 
                             <p>Total price:</p> 
-                            <p class="totalNumber">$26</p> 
+                            <p class="totalNumber">$${totalPrice}</p> 
                          </div> 
                             <p class="purchaseBtn" role="button">Complete Order</p> 
                  `
@@ -73,9 +81,3 @@ return `
     document.getElementsByClassName('cart')[0].innerHTML = html
 }
 
-
-
-// usa el id para buscar el objeto en menuArray
-// añade el objeto al cart Array
-// haz una funcion aparte para renderizar el cart y llamala cuando se active el addEventListener
-// en la funcion agrega template String.

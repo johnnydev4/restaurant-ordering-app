@@ -163,6 +163,10 @@ ul, ol {
     margin-right: -20px;
 }
 
+.cartOverflow::-webkit-scrollbar-thumb {
+background: red;
+}
+
 
 .cart-items p{
   margin-top: 0;
@@ -183,6 +187,8 @@ ul, ol {
     font-size: 12px;
     color: #BBBBBB;
     margin-left: 13px;
+    display: flex;
+    align-items: center;
 
    
 }
