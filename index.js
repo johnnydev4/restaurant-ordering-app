@@ -34,6 +34,7 @@ addEventListener("click", function(event){
         }))
         
         cartRen()
+        console.log(cartArray)
 
     }
 })
@@ -53,12 +54,12 @@ return sum
 // rem cart function
 
 function cartRen(){
-    const ItemsHtml = cartArray.map(function(cartItem){
+    const ItemsHtml = cartArray.map(function(cartItem, index){
 return `  
             
                 <div class="cart-items">
                     <p class="cart-item-name">${cartItem.name}</p>
-                    <p class="remove-btn" role="button">remove</p> 
+                    <p class="remove-btn" role="button" data-index="${index}">remove</p> 
                      <p class="cart-item-price">$${cartItem.price}</p> 
                 </div>
                
@@ -73,11 +74,52 @@ return `
                     </div>
                     <div class="price-total"> 
                             <p>Total price:</p> 
-                            <p class="totalNumber">$${totalPrice}</p> 
+                            <p class="totalNumber">$<span id="totalPrice">${totalPrice}</span></p> 
                          </div> 
-                            <p class="purchaseBtn" role="button">Complete Order</p> 
+                            <p class="purchaseBtn" id="purchaseBtn" role="button">Complete Order</p> 
                  `
 
     document.getElementsByClassName('cart')[0].innerHTML = html
 }
 
+// remove function
+
+addEventListener("click", function(event){
+    if (event.target.dataset.index){ 
+    const index = event.target.dataset.index
+cartArray.splice(index,1)
+cartRen(cartArray)
+    
+}
+
+})
+
+// payment wall popup
+
+document.addEventListener("click", function(event){
+if(event.target.id === "purchaseBtn"){
+const totalPrice = document.getElementById("totalPrice")
+if(totalPrice.textContent){ 
+
+const father = document.querySelector(".father");
+father.innerHTML = `
+   <div class="payment-popup">
+                    <h3>Enter card details</h3>
+                    <form>
+                        <label for="name"></label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name">
+                        <label for="cardNumber"></label><br>
+                        <input type="text" id="cardNumber" name="card" placeholder="Enter card number"><br>
+                        <label for="cvv"></label>
+                        <input type="text" id="cvv" name="cvv" placeholder="Enter CVV"><br>
+                    </form>
+                    <p role="button" class="payBtn">Pay</p>
+                </div>
+
+`
+}
+}
+
+})
+
+// agregar codigo de popup al dom

@@ -119,6 +119,10 @@ ul, ol {
     
 }
 
+.add-btn:hover{
+    transform:scale(1.05)
+}
+
 /* Cart */
 
 .cart{
@@ -189,6 +193,7 @@ background: red;
     margin-left: 13px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 
    
 }
@@ -247,12 +252,17 @@ background: red;
     color: white;
     position: absolute;
     top: 250px;
+    cursor: pointer;
    
+}
+
+.purchaseBtn:hover{
+    transform:scale(1.02)
 }
 
 /* payment wall */
 
-/* .payment-popup{
+.payment-popup{
     display: flex;
     flex-direction: column;
     justify-content: center;
