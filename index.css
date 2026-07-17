@@ -45,7 +45,9 @@ body {
     flex-direction: column;
     width: 100%;
     text-align: start;
-    max-height:max-content;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 555px;
 }
 
 ul, ol {
@@ -67,6 +69,8 @@ ul, ol {
     box-sizing: border-box;
 
 }
+
+
 
 .menu-image{
     height: 76px;
@@ -302,7 +306,7 @@ background: red;
     padding: 0;
 }
 
-input[type="text"]{
+input[type="text"], [type="password"]{
 width: 475.91px;
 height: 71.3px;
 margin-bottom: 23.22px;
@@ -336,4 +340,24 @@ padding-left: 26.53px;
     transform: scale(1.02);
 }
 
+/* thanks message */
 
+.thanksMessage{
+    font-size: 32px;
+    line-height: 1;
+    width: 504px;
+    height: 120px;
+    background-color: #ECFDF5;
+    color: #065F46;
+    font-family: "Smythe";
+    border: none;
+    margin-top: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+
+}

@@ -1,10 +1,10 @@
 const menuArray = [
     {
-        image: "pizza.png",
-        name: "Pizza",
-        ingredients: ["pepperoni", "mushrom", "mozarella"],
-        price: 14,
-        emoji: "🍕",
+        image: "ramen.png",
+        name: "Ramen",
+        ingredients: ["dashi", "miso", "shoyu"],
+        price: 18,
+        emoji: "🍝",
         id: 0,
     },
     {
@@ -19,9 +19,20 @@ const menuArray = [
         image: "beer.svg",
         name: "Beer",
         ingredients: ["grain, hops, yeast, water"],
-        price: 12,
+        price: 5,
         emoji: "🍺",
         id: 2
+    },
+    {
+        image: "pizza.png",
+        name: "Pizza",
+        ingredients: ["pepperoni", "mushrom", "mozarella"],
+        price: 14,
+        emoji: "🍕",
+        id: 3,
+
+
+
     }
 ]
 

@@ -26,9 +26,15 @@ render()
 
 // adding to cart
 addEventListener("click", function(event){
-    if (event.target.dataset.id){
+
+if (event.target.dataset.id){
+
+    if (document.querySelector(".thanksMessage")){
+        document.querySelector(".thanksMessage").remove()
+    }
+
         const clickId = event.target.dataset.id
-        
+  
         cartArray.push(menuArray.find(function(item){
             return item.id === Number(clickId)
         }))
@@ -37,6 +43,7 @@ addEventListener("click", function(event){
         console.log(cartArray)
 
     }
+
 })
 
 
@@ -68,7 +75,8 @@ return `
 
     }).join("")
  const totalPrice = getTotalPrice(cartArray)
-    const html = `      <h3>Your Order</h3>
+    const html = `      <div class="cart2">
+                    <h3>Your Order</h3>
                     <div class="cartOverflow">
                             ${ItemsHtml}
                     </div>
@@ -77,6 +85,7 @@ return `
                             <p class="totalNumber">$<span id="totalPrice">${totalPrice}</span></p> 
                          </div> 
                             <p class="purchaseBtn" id="purchaseBtn" role="button">Complete Order</p> 
+                            </div>
                  `
 
     document.getElementsByClassName('cart')[0].innerHTML = html
@@ -103,11 +112,12 @@ document.body.insertAdjacentHTML("beforeend", `
                 <div class="payment-popup">
                     <h3>Enter card details</h3>
                     <form id="paymentForm">
-                        <input type="text" id="name" placeholder="Enter your name" required>
-                        <input type="text" id="cardNumber" placeholder="Enter card number" required>
-                        <input type="text" id="cvv" placeholder="Enter CVV" required>
+                        <input type="text" id="name" data-name="name" pattern="[A-Za-z ]+" placeholder="Enter your name" maxlength="20" required>
+                        <input type="text" id="cardNumber" inputmode="numeric" autocomplete="cc-number" pattern="[0-9]{16}" maxlength="16" placeholder="Enter card number" required>
+                        <input type="password" id="cvv" placeholder="Enter CVV" maxlength="3" pattern="[0-9]{3}" 
+                        inputmode="numeric"  required>
                     </form>
-                    <button form="paymentForm" onclick="payBtn" class="payBtn">Pay</button>
+                    <button form="paymentForm" id="payBtn">Pay</button>
                 </div>
             </div>
         `)
@@ -117,13 +127,20 @@ document.body.insertAdjacentHTML("beforeend", `
 
 // pressing the form's payment btn
 
-function payBtn(){
-cartArray.lenght = 0
-cartRen()
-document.querySelector(".cart").remove()
-document.body.insertAdjacentHTML("beforeend", `
-    <div class="thanksMessage"> </div>
-    `)
+document.addEventListener("click", function(event){
+if (event.target.id === "payBtn"){ 
+    cartArray.length = 0
+const userName = document.getElementById("name").value
+event.preventDefault();
+document.querySelector(".overlay").remove();
+document.querySelector(".cart2").remove();
+document.getElementById("menuEl").insertAdjacentHTML("afterend", `
+    <div class="thanksMessage">
+        <p>Thanks, ${userName}! your order is on its way!</p>
+    </div>
+`)
 
 }
+})
+
 
