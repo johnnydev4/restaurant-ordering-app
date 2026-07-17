@@ -98,28 +98,32 @@ cartRen(cartArray)
 
 document.addEventListener("click", function(event){
 if(event.target.id === "purchaseBtn"){
-const totalPrice = document.getElementById("totalPrice")
-if(totalPrice.textContent){ 
-
-const father = document.querySelector(".father");
-father.innerHTML = `
-   <div class="payment-popup">
+document.body.insertAdjacentHTML("beforeend", `
+            <div class="overlay">
+                <div class="payment-popup">
                     <h3>Enter card details</h3>
-                    <form>
-                        <label for="name"></label>
-                        <input type="text" id="name" name="name" placeholder="Enter your name">
-                        <label for="cardNumber"></label><br>
-                        <input type="text" id="cardNumber" name="card" placeholder="Enter card number"><br>
-                        <label for="cvv"></label>
-                        <input type="text" id="cvv" name="cvv" placeholder="Enter CVV"><br>
+                    <form id="paymentForm">
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                        <input type="text" id="cardNumber" placeholder="Enter card number" required>
+                        <input type="text" id="cvv" placeholder="Enter CVV" required>
                     </form>
-                    <p role="button" class="payBtn">Pay</p>
+                    <button form="paymentForm" onclick="payBtn" class="payBtn">Pay</button>
                 </div>
-
-`
-}
-}
-
+            </div>
+        `)
+    }
 })
 
-// agregar codigo de popup al dom
+
+// pressing the form's payment btn
+
+function payBtn(){
+cartArray.lenght = 0
+cartRen()
+document.querySelector(".cart").remove()
+document.body.insertAdjacentHTML("beforeend", `
+    <div class="thanksMessage"> </div>
+    `)
+
+}
+
